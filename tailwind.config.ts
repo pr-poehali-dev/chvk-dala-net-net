@@ -97,7 +97,7 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'slide-tape': 'slide-tape 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+				'slide-tape': 'slide-tape 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
 				'fade-in': 'fade-in 0.6s ease-out'
 			}
 		}

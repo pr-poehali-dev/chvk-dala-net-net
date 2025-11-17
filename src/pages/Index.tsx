@@ -19,6 +19,14 @@ const classDescriptions = {
   'Капитан Гавс': 'Командир с железной выдержкой'
 };
 
+const classImages: Record<string, string> = {
+  'Штурмовик': 'https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/df433650-a53b-4b10-bced-5f1b34bf5357.jpg',
+  'Додепер': 'https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/ebfebd7c-3bb0-4b99-8e82-703aad899b7c.jpg',
+  'Оператор доставки БПЛА ДОДО': 'https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/6c7a1794-7135-4c96-9da3-53aa2df8250a.jpg',
+  'Водитель фургона с мороженым': 'https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/dd67697b-0adc-45f0-84b8-f7fb29d84c50.jpg',
+  'Капитан Гавс': 'https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/26f952b5-e830-4c4f-9abe-99b59c209b00.jpg'
+};
+
 export default function Index() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
@@ -34,7 +42,7 @@ export default function Index() {
       setSelectedClass(randomClass);
       setIsSpinning(false);
       setShowResult(true);
-    }, 3000);
+    }, 2000);
   };
 
   return (
@@ -47,7 +55,7 @@ export default function Index() {
         <div className="container relative z-10 mx-auto px-4 py-20 text-center">
           <div className="mb-8 inline-block border-4 border-primary bg-primary px-8 py-2">
             <h1 className="text-6xl md:text-8xl tracking-wider text-primary-foreground drop-shadow-lg">
-              ЧВК ДАЛА НЕТ НЕТ
+              ЧВК ДА ДА НЕТ НЕТ
             </h1>
           </div>
           
@@ -91,26 +99,26 @@ export default function Index() {
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform">
-              <Icon name="Package" className="mx-auto mb-4 text-primary" size={64} />
+            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform overflow-hidden">
+              <img src="https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/ebfebd7c-3bb0-4b99-8e82-703aad899b7c.jpg" alt="Снаряжение" className="w-full h-48 object-cover mb-4 rounded" />
               <h3 className="text-2xl mb-2">Снаряжение</h3>
               <p className="text-muted-foreground">Выдадим всё необходимое для выполнения задач</p>
             </Card>
             
-            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform">
-              <Icon name="Truck" className="mx-auto mb-4 text-primary" size={64} />
+            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform overflow-hidden">
+              <img src="https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/6c7a1794-7135-4c96-9da3-53aa2df8250a.jpg" alt="Техника" className="w-full h-48 object-cover mb-4 rounded" />
               <h3 className="text-2xl mb-2">Новейшая техника</h3>
               <p className="text-muted-foreground">Современное оборудование и транспорт</p>
             </Card>
             
-            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform">
-              <Icon name="Shield" className="mx-auto mb-4 text-primary" size={64} />
+            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform overflow-hidden">
+              <img src="https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/26f952b5-e830-4c4f-9abe-99b59c209b00.jpg" alt="Командиры" className="w-full h-48 object-cover mb-4 rounded" />
               <h3 className="text-2xl mb-2">Крутые командиры</h3>
               <p className="text-muted-foreground">Опытное руководство и поддержка</p>
             </Card>
             
-            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform">
-              <Icon name="Candy" className="mx-auto mb-4 text-primary" size={64} />
+            <Card className="border-4 border-primary bg-background p-8 text-center hover:scale-105 transition-transform overflow-hidden">
+              <img src="https://cdn.poehali.dev/projects/85948ed3-45f5-4073-b842-bdd57a02d752/files/dd67697b-0adc-45f0-84b8-f7fb29d84c50.jpg" alt="Конфеты" className="w-full h-48 object-cover mb-4 rounded" />
               <h3 className="text-2xl mb-2">Выплаты конфетами</h3>
               <p className="text-muted-foreground">Чокопай и за выслугу лет — большой Сникерс</p>
             </Card>
@@ -128,13 +136,20 @@ export default function Index() {
             {classes.map((className, index) => (
               <Card
                 key={index}
-                className="border-4 border-primary bg-card p-6 hover:bg-primary hover:text-primary-foreground transition-all group"
+                className="border-4 border-primary bg-card hover:bg-primary transition-all group overflow-hidden"
               >
-                <div className="text-6xl mb-4 text-center">★</div>
-                <h3 className="text-2xl mb-3 text-center">{className}</h3>
-                <p className="text-center text-muted-foreground group-hover:text-primary-foreground">
-                  {classDescriptions[className as keyof typeof classDescriptions]}
-                </p>
+                <img 
+                  src={classImages[className]} 
+                  alt={className} 
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-6">
+                  <div className="text-4xl mb-3 text-center">★</div>
+                  <h3 className="text-2xl mb-3 text-center group-hover:text-primary-foreground">{className}</h3>
+                  <p className="text-center text-muted-foreground group-hover:text-primary-foreground">
+                    {classDescriptions[className as keyof typeof classDescriptions]}
+                  </p>
+                </div>
               </Card>
             ))}
           </div>
@@ -146,14 +161,33 @@ export default function Index() {
           <h2 className="text-5xl md:text-6xl mb-8 text-primary tracking-wider">
             Где работаем
           </h2>
-          <div className="max-w-3xl mx-auto">
-            <Card className="border-4 border-primary bg-background p-12">
-              <div className="text-8xl mb-6">🌍</div>
-              <h3 className="text-4xl mb-4">Африка</h3>
-              <p className="text-xl text-muted-foreground">
-                Достойная работа по охране перевозки бананов. 
-                Тёплый климат, экзотическая природа, незабываемые впечатления!
-              </p>
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-4 border-primary bg-background overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="p-12 flex flex-col justify-center">
+                  <div className="text-6xl mb-6">🌍</div>
+                  <h3 className="text-4xl mb-4">Африка</h3>
+                  <p className="text-xl text-muted-foreground">
+                    Достойная работа по охране перевозки бананов. 
+                    Тёплый климат, экзотическая природа, незабываемые впечатления!
+                  </p>
+                </div>
+                <div className="relative h-full min-h-[400px]">
+                  <svg viewBox="0 0 400 500" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="500" fill="#FEF7CD"/>
+                    <path d="M200 50 L220 80 L250 85 L280 95 L300 120 L310 150 L315 180 L318 210 L315 240 L310 270 L300 300 L285 330 L270 350 L250 370 L230 385 L210 395 L190 400 L170 395 L150 385 L130 370 L115 350 L100 330 L85 300 L75 270 L70 240 L67 210 L70 180 L75 150 L85 120 L100 95 L120 80 L140 70 L160 60 L180 52 Z" 
+                          fill="#DC2626" 
+                          stroke="#1A1F2C" 
+                          strokeWidth="3"/>
+                    <text x="200" y="230" fontSize="48" fontWeight="bold" textAnchor="middle" fill="#FEF7CD" fontFamily="Oswald, sans-serif">
+                      АФРИКА
+                    </text>
+                    <circle cx="180" cy="180" r="8" fill="#FCD34D"/>
+                    <circle cx="220" cy="200" r="8" fill="#FCD34D"/>
+                    <circle cx="200" cy="250" r="8" fill="#FCD34D"/>
+                  </svg>
+                </div>
+              </div>
             </Card>
           </div>
         </div>
@@ -209,9 +243,10 @@ export default function Index() {
         <div className="container mx-auto px-4 text-center">
           <div className="text-4xl mb-4">★ ★ ★</div>
           <p className="text-2xl font-bold uppercase tracking-wide">
-            ЧВК ДАЛА НЕТ НЕТ
+            ЧВК ДА ДА НЕТ НЕТ
           </p>
           <p className="mt-2 text-lg">Служба с 15 лет • Выплаты конфетами • Работа в Африке</p>
+          <p className="mt-3 text-xl font-bold">☎ +7 (960) 536-25-18</p>
         </div>
       </footer>
     </div>
