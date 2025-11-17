@@ -85,9 +85,9 @@ export default {
 						height: '0'
 					}
 				},
-				'spin-wheel': {
-					'0%': { transform: 'rotate(0deg)' },
-					'100%': { transform: 'rotate(1800deg)' }
+				'slide-tape': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				},
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -97,7 +97,7 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'spin-wheel': 'spin-wheel 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+				'slide-tape': 'slide-tape 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
 				'fade-in': 'fade-in 0.6s ease-out'
 			}
 		}

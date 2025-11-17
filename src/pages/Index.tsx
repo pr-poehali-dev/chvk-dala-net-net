@@ -182,20 +182,25 @@ export default function Index() {
       )}
 
       {isSpinning && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-          <div className="relative">
-            <div className="w-96 h-96 border-8 border-primary rounded-full bg-background flex items-center justify-center animate-spin-wheel">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-1 gap-2 text-2xl font-bold">
-                  {classes.map((cls, i) => (
-                    <div key={i} className="text-primary">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-4xl">
+            <div className="absolute left-1/2 -translate-x-1/2 -top-12 text-6xl z-10">▼</div>
+            
+            <div className="overflow-hidden border-8 border-primary bg-background rounded-lg">
+              <div className="flex animate-slide-tape">
+                {[...classes, ...classes, ...classes, ...classes].map((cls, i) => (
+                  <div
+                    key={i}
+                    className="min-w-[300px] h-48 border-4 border-primary bg-card flex flex-col items-center justify-center p-6 shrink-0"
+                  >
+                    <div className="text-5xl mb-3">★</div>
+                    <h3 className="text-xl font-bold text-center text-primary uppercase">
                       {cls}
-                    </div>
-                  ))}
-                </div>
+                    </h3>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl">▼</div>
           </div>
         </div>
       )}
